@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Hallway Walking</title>
+	<link href="walking.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<div class="ghost bounce" style="cursor: pointer;" onclick="window.location='inside.html';">
+	<div class="eyes">
+		<div class="eye eye-1">
+			<div class="pupil"></div>
+		</div>
+		<div class="eye eye-2">
+			<div class="pupil"></div>
+		</div>
+	</div>
+</div>
+	<div class="moving"></div>
+	<div class="moving1"></div>
+<script>
+var eyeball = function (selector) {
+    var eye = document.querySelector(selector),
+        pupil = eye.querySelector('.pupil'),
+        eye_area = eye.getBoundingClientRect();
+
+    var eye_roll = function (mouseX, mouseY) {
+        var radian = Math.atan2( mouseY - (eye_area.y + eye_area.height * 0.5), mouseX - (eye_area.x + eye_area.width * 0.5) );
+        pupil.style.transform = 'rotate(' + (180 * radian / Math.PI - 90) + 'deg)';
+    };
+
+    return {
+        eye_roll: eye_roll
+    };
+};
+
+var left_eye = eyeball('.eye-1');
+var right_eye = eyeball('.eye-2');
+
+window.addEventListener('mousemove', function (e) {
+    left_eye.eye_roll(e.pageX, e.pageY);
+	right_eye.eye_roll(e.pageX, e.pageY);
+});
+</script>
+</body>
+</html>

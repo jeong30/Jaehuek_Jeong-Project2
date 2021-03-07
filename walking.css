@@ -1,0 +1,113 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	padding: 0;
+	margin: 0;
+	background-color: black;
+}
+
+.moving{
+	width: 100%; height:385px;
+	background:url('Images/soupcan.jpg') 0 center / 684px repeat-x;
+	animation: moverp 20s linear infinite;
+}
+
+.moving1{
+	width: 100%; height:717px;
+	background:url('Images/soupcans.jpg') 0 center / 640px repeat-x;
+	animation: moverp1 20s linear infinite;
+}
+
+
+.ghost {
+    position: absolute;
+    top: 90%;
+    left: 10%;
+    width: 300px;
+    height: 300px;
+    background: url('Images/gho.png') no-repeat 50% 50%;
+    background-size: contain;
+    transform: translate(-50%,-50%);	
+}
+
+.ghost:hover{
+	background: url('Images/ghoC.png') no-repeat 50% 50%;
+	background-size: contain;
+}
+@keyframes moverp1 {
+	0% {background-position: 0 center;}
+	100% {background-position: -640px center;}
+}
+
+@keyframes moverp {
+	0% {background-position: 0 center;}
+	100% {background-position: +684px center;}
+}
+
+@keyframes bounce {
+	0% {margin-top: 0;}
+	100% {margin-top: -20px;}
+}
+.bounce {
+	animation:bounce 1s infinite linear alternate;
+}
+
+.eyes {
+    display: flex;
+    position: absolute;
+    top: 27px;
+    left: 135px;
+}
+
+.eye {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 50%;
+    background-color: white;
+    transform: scaleX(0.9);
+}
+
+.eye-1 {
+    left: 35px;
+}
+
+.eye-2 {
+    left: -35px;
+}
+
+.pupil {
+    position: absolute;
+    left: 10px;
+    bottom: 0;
+    width: 10px;
+    height: inherit;
+}
+
+.pupil:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: inherit;
+    height: 10px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+
+/*
+.pupil:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    width: 3px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: white;
+}
+*/
